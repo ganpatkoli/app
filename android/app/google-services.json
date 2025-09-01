@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "987150241940",
+    "project_id": "trip-booking-888e9",
+    "storage_bucket": "trip-booking-888e9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987150241940:android:93c908211bdb7165db6481",
+        "android_client_info": {
+          "package_name": "com.tripbooking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBmQXik0m5xG_VrWp5-uTpxOWyoWpOD9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "main",
+  "displayName": "MyFirstApp",
+  "expo": {
+    "name": "MyFirstApp",
+    "slug": "MyFirstApp",
+    "version": "1.0.0",
+    "android": {
+      "package": "com.tripbooking",
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "plugins": [
+      "expo-barcode-scanner",
+      "expo-build-properties"
+    ]
+  },
+  "icon": "./assets/icon.png",
+  "splash": {
+    "image": "./assets/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#ffffff"
+  }
+}
