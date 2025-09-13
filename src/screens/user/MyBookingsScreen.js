@@ -212,7 +212,7 @@ export default function MyBookingsScreen({ navigation }) {
         </View>
       </Modal>
 
-      <Modal visible={filterModalVisible} animationType="slide" transparent>
+      <Modal visible={filterModalVisible} animationType="slide" transparent style={{ margin: 0 }}>
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
             <Text style={styles.modalTitle}>Booking Type</Text>
@@ -252,10 +252,22 @@ export default function MyBookingsScreen({ navigation }) {
                 </TouchableOpacity>
               ))}
             </View>
+
             <TouchableOpacity style={styles.applyBtn} onPress={applyFilters} activeOpacity={0.85}>
               <Text style={styles.applyText}>Apply Filter</Text>
             </TouchableOpacity>
-          </View>
+            <TouchableOpacity style={styles.clearBtn} onPress={() => {
+              setFilterStatus("all");
+              setFilterSortBy("latest");
+              setStatusFilter("all");
+              setPage(1);
+              setBookings([]);
+              setFilterModalVisible(false);
+            }} activeOpacity={0.85}>
+              <Text style={styles.clearText}>Clear Filter</Text>
+            </TouchableOpacity>
+          
+            </View>
         </View>
       </Modal>
     </View>
@@ -418,7 +430,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.12)",
     justifyContent: "flex-end",
-    margin: 0,
+    // margin: 0,
   },
   modalContainer: {
     backgroundColor: "#fff",
@@ -427,7 +439,7 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingBottom: 32,
     minHeight: 420,
-    width: "100%",
+    // width: "100%",
   },
   modalTitle: {
     fontSize: 18,
@@ -473,7 +485,20 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "bold",
   },
-
+  clearBtn: {
+    // flex: 1,
+    backgroundColor: "#e5e7eb",
+    color: "#333",
+    marginTop: 10,
+    borderRadius: 8,
+    paddingVertical: 13,
+    alignItems: "center",
+  },
+  clearText: {
+    color: "#1f0707ff",
+    fontSize: 17,
+    fontWeight: "bold",
+  },
   optionsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",

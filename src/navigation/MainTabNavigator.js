@@ -11,6 +11,7 @@ import SettingsScreen from "../screens/user/SettingsScreen";
 import TripsDetails from "../screens/user/TripsDetails";
 import CreateBookingScreen from "../screens/user/CreateBookingScreen";
 import ViewBokingInfo from "../screens/user/ViewBokingInfo";
+import previewBooking from "../screens/user/ViewBookingPreview";
 
 import PurchasePackageScreen from "../screens/packages/PurchasePackageScreen";
 const Tab = createBottomTabNavigator();
@@ -37,6 +38,11 @@ export default function MainTabNavigator() {
           component={CreateBookingScreen}
           options={{ title: "Edit Trip" }}
         />
+          <Stack.Screen
+          name="previewBooking"
+          component={previewBooking}
+          options={{ title: "Booking Preview" }}
+        />
       </Stack.Navigator>
     );
   }
@@ -56,6 +62,7 @@ export default function MainTabNavigator() {
           component={ViewBokingInfo}
           options={{ title: "Booking Details" }}
         />
+      
       </Stack.Navigator>
     );
   }

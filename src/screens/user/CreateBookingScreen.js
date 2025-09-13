@@ -17,6 +17,9 @@ import instance from "../../api/axiosInstance";
 export default function BookingScreen({ route, navigation }) {
   const { tripData } = route.params;
 
+
+  // console.log("tripData", tripData);
+
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [categoryValue, setCategoryValue] = useState('single');
   const [categoryItems, setCategoryItems] = useState([
@@ -115,7 +118,7 @@ export default function BookingScreen({ route, navigation }) {
 
     // tripId, seatsBooked, pricePaid, travellers
 
-    console.log("Booking payload:",);
+    // console.log("Booking payload:",);
 
     const payload = {
 
@@ -131,11 +134,11 @@ export default function BookingScreen({ route, navigation }) {
       pricePaid: totalPrice,
     };
 
-    console.log("Booking payload:", payload);
+    // console.log("Booking payload:", payload);
 
     const response = await instance.post("/bookings", payload);
 
-    console.log("Booking---------------------", response);
+
 
     if (response.status === 201) {
       setLoading(true);
@@ -166,7 +169,7 @@ export default function BookingScreen({ route, navigation }) {
           <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
             <Ionicons name="arrow-back" size={24} color="#fff" />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>My Bookings</Text>
+          <Text style={styles.headerTitle}>Bookings Details</Text>
           <View style={{ width: 24 }} />
         </View>
       </LinearGradient>
@@ -240,7 +243,7 @@ export default function BookingScreen({ route, navigation }) {
             <View style={styles.priceChipsContainer}>
               <View style={styles.chip}>
                 <Text style={styles.chipText}>🧍 Single: ₹{prices.single}/PP</Text>
-                
+
               </View>
               <View style={styles.chip}>
                 <Text style={styles.chipText}>👩‍❤️‍👨 Couple: ₹{prices.couple}/PP</Text>
@@ -298,7 +301,16 @@ export default function BookingScreen({ route, navigation }) {
             <LinearGradient colors={["#4f46e5", "#2563eb"]} style={styles.button}>
               <TouchableOpacity
                 style={styles.btnInner}
-                onPress={handleBooking}
+                // onPress={handleBooking}
+                onPress={() =>
+                  navigation.navigate("previewBooking", {
+                    tripData,
+                    categoryValue,
+                    travellers,
+                    totalPrice,
+                  })
+                }
+
                 disabled={loading}
                 activeOpacity={0.9}
               >
